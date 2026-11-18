@@ -1,0 +1,34 @@
+{
+  "build": {
+    "arduino": {
+      "memory_type": "hex"
+    },
+    "core": "esp32",
+    "extra_flags": ["-DBOARD_HAS_PSRAM"],
+    "f_cpu": "400000000L",
+    "f_flash": "80000000L",
+    "f_psram": "200000000L",
+    "flash_mode": "qio",
+    "mcu": "esp32p4",
+    "chip_variant": "esp32p4",
+    "variant": "esp32p4"
+  },
+  "arduino": {
+    "partitions": "default_16MB.csv"
+  },
+  "connectivity": ["bluetooth", "lora"],
+  "debug": {
+    "openocd_target": "esp32p4.cfg"
+  },
+  "frameworks": ["arduino", "espidf"],
+  "name": "LilyGo T-Display-P4 (ESP32-P4 rev.300, 16 MB flash)",
+  "upload": {
+    "flash_size": "16MB",
+    "maximum_ram_size": 512000,
+    "maximum_size": 16777216,
+    "require_upload_port": true,
+    "speed": 921600
+  },
+  "url": "https://github.com/Xinyuan-LilyGO/T-Display-P4",
+  "vendor": "LilyGo"
+}

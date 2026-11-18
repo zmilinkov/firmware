@@ -187,6 +187,10 @@ PCA95X5_CLS io;
 #include "platform/esp32/ExtensionIOMCP23017.h"
 #endif
 
+#ifdef USE_XL9535
+#include "platform/esp32/ExtensionIOXL9535.h"
+#endif
+
 #if HAS_TFT
 extern void tftSetup(void);
 #endif
@@ -651,6 +655,11 @@ void setup()
     // Bring up the I2C IO expander (LoRa reset, LCD reset, GPS wake) now that the PMU rails are up,
     // before the I2C scan and radio/display init
     mcp23017EarlyInit();
+#endif
+
+#ifdef USE_XL9535
+    // Power the radio rail, release the radio reset and select the antenna through the I2C IO expander
+    xl9535EarlyInit();
 #endif
 
 #ifdef SENSECAP_INDICATOR

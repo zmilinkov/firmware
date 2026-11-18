@@ -34,6 +34,9 @@
 #if defined(ARCH_ESP32) && defined(USE_MCP23017)
 #include "platform/esp32/MCP23017LockingArduinoHal.h"
 #endif
+#if defined(ARCH_ESP32) && defined(USE_XL9535)
+#include "platform/esp32/XL9535LockingArduinoHal.h"
+#endif
 
 #ifdef ARCH_STM32WL
 #include "STM32WLE5JCInterface.h"
@@ -449,6 +452,10 @@ std::unique_ptr<RadioInterface> initLoRa()
 #elif defined(ARCH_ESP32) && defined(USE_MCP23017)
     // Radio control lines (RESET/DIO1/BUSY) are virtual pins on an MCP23017 I2C expander
     LockingArduinoHal *loraHal = new MCP23017LockingArduinoHal(SPI, loraSpiSettings, mcpIoExpander);
+    RadioLibHAL = loraHal;
+#elif defined(ARCH_ESP32) && defined(USE_XL9535)
+    // Radio control lines (RESET/DIO1) are virtual pins on an XL9535 I2C expander
+    LockingArduinoHal *loraHal = new XL9535LockingArduinoHal(SPI, loraSpiSettings, xl9535IoExpander);
     RadioLibHAL = loraHal;
 #else // HW_SPI1_DEVICE
     LockingArduinoHal *loraHal = new LockingArduinoHal(SPI, loraSpiSettings);
