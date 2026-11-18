@@ -5,12 +5,12 @@
     },
     "core": "esp32",
     "extra_flags": ["-DBOARD_HAS_PSRAM"],
-    "f_cpu": "400000000L",
+    "f_cpu": "360000000L",
     "f_flash": "80000000L",
     "f_psram": "200000000L",
     "flash_mode": "qio",
     "mcu": "esp32p4",
-    "chip_variant": "esp32p4",
+    "chip_variant": "esp32p4_es",
     "variant": "esp32p4"
   },
   "arduino": {
@@ -21,7 +21,7 @@
     "openocd_target": "esp32p4.cfg"
   },
   "frameworks": ["arduino", "espidf"],
-  "name": "LilyGo T-Display-P4 (ESP32-P4 rev.300, 16 MB flash)",
+  "name": "LilyGo T-Display-P4 (ESP32-P4 ES pre rev.300 (v1.x), 16 MB flash)",
   "upload": {
     "flash_size": "16MB",
     "maximum_ram_size": 512000,
