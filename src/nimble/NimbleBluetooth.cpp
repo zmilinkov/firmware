@@ -921,7 +921,9 @@ void NimbleBluetooth::setup()
 #endif
 
     BLEDevice::init(getDeviceName());
+#ifndef CONFIG_IDF_TARGET_ESP32P4 // the controller lives on the ESP32-C6 behind ESP-Hosted, no local TX power control
     BLEDevice::setPower(ESP_PWR_LVL_P9);
+#endif
 
     int mtuResult = BLEDevice::setMTU(kPreferredBleMtu);
     if (mtuResult == 0) {
