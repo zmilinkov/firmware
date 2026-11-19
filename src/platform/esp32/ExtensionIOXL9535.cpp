@@ -121,6 +121,11 @@ void xl9535EarlyInit()
     xl9535IoExpander.pinMode(EXIO_USB_PHY_POWER_EN, OUTPUT);
 #endif
 
+#ifdef EXIO_GPS_WAKE
+    xl9535IoExpander.digitalWrite(EXIO_GPS_WAKE, HIGH);
+    xl9535IoExpander.pinMode(EXIO_GPS_WAKE, OUTPUT);
+#endif
+
     xl9535IoExpander.digitalWrite(EXIO_RF_SWITCH_VCTL, EXIO_RF_SWITCH_INTERNAL_ANTENNA);
     xl9535IoExpander.pinMode(EXIO_RF_SWITCH_VCTL, OUTPUT);
 

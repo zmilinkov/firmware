@@ -17,6 +17,7 @@
 #define EXIO_POWER_EN_3V3 0  // IO0: 3.3 V peripheral rail
 #define EXIO_RF_SWITCH_VCTL 1 // IO1: SKY13453 antenna path
 #define EXIO_USB_PHY_POWER_EN 8 // IO10: USB PHY supply (named ESP32P4_VCCA_POWER_EN in Meck-P4)
+#define EXIO_GPS_WAKE 9         // IO11: L76K WAKE_UP, driven high
 #define EXIO_LORA_NRST 14     // IO16: SX1262 reset
 #define EXIO_LORA_DIO1 15     // IO17: SX1262 DIO1
 
@@ -54,9 +55,9 @@
 #define SX126X_MAX_POWER 22
 
 // ─── GPS ──────────────────────────────────────────────────────────────────────
-// Quectel L76K on UART (module TX = 22 -> not used until the GPS bring-up is done)
-#define GPS_RX_PIN 23
-#define GPS_TX_PIN 22
+// Quectel L76K on UART. LilyGo's pin names (TX 22 / RX 23) are the module's, so the module's TX is the MCU's RX.
+#define GPS_RX_PIN 22
+#define GPS_TX_PIN 23
 
 // ─── Buttons ──────────────────────────────────────────────────────────────────
 #define BUTTON_PIN 35 // ESP32-P4 BOOT
