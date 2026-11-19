@@ -16,6 +16,7 @@
 #define XL9535_VPIN_BASE 100 // RadioLib virtual pins 100..115 = expander P0.0..P1.7
 #define EXIO_POWER_EN_3V3 0  // IO0: 3.3 V peripheral rail
 #define EXIO_RF_SWITCH_VCTL 1 // IO1: SKY13453 antenna path
+#define EXIO_USB_PHY_POWER_EN 8 // IO10: USB PHY supply (named ESP32P4_VCCA_POWER_EN in Meck-P4)
 #define EXIO_LORA_NRST 14     // IO16: SX1262 reset
 #define EXIO_LORA_DIO1 15     // IO17: SX1262 DIO1
 

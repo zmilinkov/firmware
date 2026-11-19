@@ -116,6 +116,11 @@ void xl9535EarlyInit()
     // The 3.3 V rail has to settle before the radio is released from reset
     delay(10);
 
+#ifdef EXIO_USB_PHY_POWER_EN
+    xl9535IoExpander.digitalWrite(EXIO_USB_PHY_POWER_EN, HIGH);
+    xl9535IoExpander.pinMode(EXIO_USB_PHY_POWER_EN, OUTPUT);
+#endif
+
     xl9535IoExpander.digitalWrite(EXIO_RF_SWITCH_VCTL, EXIO_RF_SWITCH_INTERNAL_ANTENNA);
     xl9535IoExpander.pinMode(EXIO_RF_SWITCH_VCTL, OUTPUT);
 
